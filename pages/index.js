@@ -1,25 +1,29 @@
-import Link from 'next/link'
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 function Home() {
+  const [existingBuckets, setBuckets] = useState([])
+
+  useEffect(() => {
+    async function fetchBuckets() {
+      const bucketsResponse = await axios.get('/api/buckets');
+      console.log({ data: bucketsResponse.data.Buckets });
+      setBuckets(bucketsResponse.data.Buckets);
+    }
+    fetchBuckets();
+  }, []);
+ 
+  const listItems = existingBuckets.map((x) =>
+  <li key={x.Name}>Bucket Name: {x.Name}, Date Created: {x.CreationDate} </li>
+  );
+ 
+
   return (
-    <ul>
-      <li>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/about">
-          <a>About Us</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/blog/hello-world">
-          <a>Blog Post</a>
-        </Link>
-      </li>
-    </ul>
-  )
+    <>
+      <h1>Bucket lists</h1>
+      <ul> {listItems} </ul>
+    </>
+  );
 }
 
 export default Home
