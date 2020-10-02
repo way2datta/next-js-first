@@ -22,4 +22,8 @@ function Home() {
   );
 }
 
-export default Home
+import Layout from "./Layout";
+
+const Index = () => <Layout><Home /></Layout>;
+
+export default Index;

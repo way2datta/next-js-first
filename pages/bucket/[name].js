@@ -26,4 +26,8 @@ function BucketView() {
   );
 }
 
-export default BucketView
+import Layout from "./../Layout";
+
+const Index = () => <Layout><BucketView /></Layout>;
+
+export default Index;

@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { s3Client } from "./../api/S3Client";
-import { withRouter } from 'next/router'
+import { withRouter } from 'next/router';
+
 
 function createBucket(bucketName) {
     return s3Client.createBucket({ Bucket: bucketName }).promise();
-}
+}   
 
 function CreateBucketView(props) {
     const [newBucketName, setNewBucketName] = useState("")
@@ -28,4 +29,12 @@ function CreateBucketView(props) {
     );
 }
 
-export default withRouter(CreateBucketView);
+
+
+import Layout from "./../Layout";
+
+const CreateBucketViewWithRouter = withRouter(CreateBucketView);
+
+const Index = (props) => <Layout><CreateBucketViewWithRouter /></Layout>;
+
+export default Index;
