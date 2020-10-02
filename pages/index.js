@@ -16,6 +16,7 @@ function Home() {
   return (
     <>
       <h1>S3 buckets</h1>
+      <a href="/bucket/create">Create bucket</a>
       <BucketListing buckets={existingBuckets} />
     </>
   );
