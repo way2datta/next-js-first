@@ -1,3 +1,4 @@
+import Link from 'next/link'
 const headerStyle = {
     // backgroundColor: "blue",
     // color: "white",
@@ -7,7 +8,7 @@ const headerStyle = {
   
   const Header = () => (
     <div className="Header" style={headerStyle}>
-      <a href="/">S3 Browser</a>
+      <Link href="/">S3 Browser</Link>
     </div>
   );
   
