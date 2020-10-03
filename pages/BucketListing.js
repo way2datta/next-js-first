@@ -1,7 +1,9 @@
+import Link from 'next/link'
+
 export function BucketListing({ buckets }) {
   const listItems = buckets.map((x) =>
     <li key={x.Name}>Bucket Name:
-  <a href={`/bucket/${x.Name}`}>{x.Name}</a>, Date Created: {x.CreationDate} </li>
+  <Link  href={`/bucket/${x.Name}`}>{x.Name}</Link>, Date Created: {x.CreationDate} </li>
   );
 
   return <ul> {listItems} </ul>;

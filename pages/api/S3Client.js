@@ -8,6 +8,4 @@ var options = {
   secretAccessKey: "S3RVER",
   s3ForcePathStyle: true
 };
-console.log("options: ", options);
-
 export const s3Client = new S3(options);

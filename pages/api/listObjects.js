@@ -2,7 +2,7 @@ import { s3Client } from "./S3Client";
 
 export default (req, res) => {
   var params = {
-    Bucket: "first"
+    Bucket:req.query.bucketName
    };
   // Call S3 to list the buckets
   s3Client.listObjects(params, function(err, data) {
