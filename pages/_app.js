@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './BucketListing.scss';
 
 export default function MyApp({ Component, pageProps }) {

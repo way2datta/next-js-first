@@ -3,24 +3,33 @@ body{
   font-size: 15px;
   line-height: 1.5;
 }
-table{
-  border: 1px solid #dddddd;
-  margin: 20px 0;
-  padding: 5px 0;
-  border-collapse: collapse;
- thead{
-   th{
-     font-weight: bolder;
-     text-align: left;
-   padding: 2px 8px;
-    font-size: 20px;
-   }
- } 
- td{
-  padding: 2px 8px;
- }
- tbody{ tr:nth-child(odd) {
-  background-color: #dddddd;
+
+.Header {
+margin-bottom: 20px;;
+
+  a{
+    text-decoration: none;
+  font-size: 25px;
+  }
 }
- }
-}
+// table{
+//   border: 1px solid #dddddd;
+//   margin: 20px 0;
+//   padding: 5px 0;
+//   border-collapse: collapse;
+//  thead{
+//    th{
+//      font-weight: bolder;
+//      text-align: left;
+//    padding: 2px 8px;
+//     font-size: 20px;
+//    }
+//  } 
+//  td{
+//   padding: 2px 8px;
+//  }
+//  tbody{ tr:nth-child(odd) {
+//   background-color: #dddddd;
+// }
+//  }
+// }

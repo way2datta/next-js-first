@@ -1,5 +1,6 @@
 import Link from 'next/link'
 //import './BucketListing.scss';
+import Table from 'react-bootstrap/Table'
 
 export function BucketListing({ buckets }) {
   const listItems = buckets.map((x) =>
@@ -8,7 +9,7 @@ export function BucketListing({ buckets }) {
   );
 
   // return <ul> {listItems} </ul>;
-  return <table>
+  return <Table striped bordered hover responsive >
     <thead>
         <tr>
             <th>Bucket Name</th>
@@ -20,5 +21,5 @@ export function BucketListing({ buckets }) {
             {listItems}
       
     </tbody>
-</table>
+</Table>
 }

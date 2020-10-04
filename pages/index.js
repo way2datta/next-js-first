@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchBuckets } from "./fetchBuckets";
 import { BucketListing } from "./BucketListing";
+import Link from 'next/link';
 
 function Home() {
   const [existingBuckets, setBuckets] = useState([])
@@ -16,7 +17,7 @@ function Home() {
   return (
     <>
       <h1>S3 buckets</h1>
-      <a href="/bucket/create">Create bucket</a>
+      <Link href="/bucket/create"  >Create bucket</Link>
       <BucketListing buckets={existingBuckets} />
     </>
   );
