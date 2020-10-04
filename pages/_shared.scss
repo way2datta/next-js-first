@@ -4,12 +4,24 @@ body{
   line-height: 1.5;
 }
 
+a{
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none;
+}
+
 .Header {
 margin-bottom: 20px;;
 
   a{
-    text-decoration: none;
   font-size: 25px;
+  }
+}
+.NavBar{
+  margin-top: 100px;
+  a{
+color: black;
   }
 }
 // table{

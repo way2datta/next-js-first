@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './BucketListing.scss';
+import './_shared.scss';
 
 export default function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />

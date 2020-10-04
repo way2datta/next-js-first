@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { fetchBuckets } from "./fetchBuckets";
-import { BucketListing } from "./BucketListing";
+import { BucketListing } from "./components/BucketListing";
 import Link from 'next/link';
+import Layout from "./components/shared/Layout";
 
 function Home() {
   const [existingBuckets, setBuckets] = useState([])
@@ -22,8 +23,6 @@ function Home() {
     </>
   );
 }
-
-import Layout from "./Layout";
 
 const Index = () => <Layout><Home /></Layout>;
 

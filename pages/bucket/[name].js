@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { fetchBucketsObjects } from "./../fetchBucketsObjects";
 import { useState, useLayoutEffect } from "react";
 import { ObjectsListing } from "./../ObjectsListing";
+import Layout from "./../components/shared/Layout";
 
 function BucketView() {
   const router = useRouter()
@@ -23,8 +24,6 @@ function BucketView() {
     </>
   );
 }
-
-import Layout from "./../Layout";
 
 const Index = () => <Layout><BucketView /></Layout>;
 

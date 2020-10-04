@@ -1,11 +1,7 @@
 import { useState } from "react";
-import { s3Client } from "./../api/S3Client";
 import { withRouter } from 'next/router';
-
-
-function createBucket(bucketName) {
-    return s3Client.createBucket({ Bucket: bucketName }).promise();
-}   
+import Layout from "./../components/shared/Layout";
+import { createBucket } from "./createBucket";
 
 function CreateBucketView(props) {
     const [newBucketName, setNewBucketName] = useState("")
@@ -28,10 +24,6 @@ function CreateBucketView(props) {
         </>
     );
 }
-
-
-
-import Layout from "./../Layout";
 
 const CreateBucketViewWithRouter = withRouter(CreateBucketView);
 
