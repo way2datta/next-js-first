@@ -9,3 +9,9 @@ export async function createBucket(bucketName) {
   const bucketsResponse = await axios.post('/api/buckets', {bucketName});
   return bucketsResponse.data.Buckets;
 }
+
+export async function deleteBucket(bucketName) {
+  const bucketsResponse = await axios.delete(`/api/buckets/${bucketName}`);
+  return bucketsResponse.data.Buckets;
+}
+

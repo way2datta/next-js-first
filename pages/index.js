@@ -1,17 +1,20 @@
 import { useState, useEffect } from "react";
-import { fetchBuckets } from "./http-client/BucketRepository";
+import { fetchBuckets, deleteBucket } from "./http-client/BucketRepository";
 import { BucketListing } from "./components/BucketListing";
 import Link from 'next/link';
 import Layout from "./components/shared/Layout";
 
 function Home() {
   const [existingBuckets, setBuckets] = useState([])
-
+  async function loadBuckets() {
+    const buckets = await fetchBuckets();
+    setBuckets(buckets);
+  }
+  const onDeleteClicked =async(args)=> {
+    await deleteBucket(args);
+    await loadBuckets();
+  }
   useEffect(() => {
-    async function loadBuckets() {
-      const buckets = await fetchBuckets();
-      setBuckets(buckets);
-    }
     loadBuckets();
   }, []);
 
@@ -19,7 +22,7 @@ function Home() {
     <>
       <h1>S3 buckets</h1>
       <Link href="/bucket/create"  >Create bucket</Link>
-      <BucketListing buckets={existingBuckets} />
+      <BucketListing buckets={existingBuckets}  onDeleteClicked={onDeleteClicked}/>
     </>
   );
 }
