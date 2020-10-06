@@ -5,8 +5,8 @@ import { ObjectsListing } from "../components/ObjectsListing";
 import Layout from "../components/shared/Layout";
 
 function BucketView() {
-  const router = useRouter()
-  const { name } = router.query
+  const router = useRouter();
+  const { name } = router.query;
   const [objectsInBucket, setObjectsInBuckets] = useState([])
 
   useLayoutEffect(() => {
