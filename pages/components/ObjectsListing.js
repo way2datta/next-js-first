@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Table from 'react-bootstrap/Table';
 
 export function ObjectsListing({ datasource }) {
-  debugger;
   const rows = datasource.map((x) =>
     <tr key={x.Key}>
       <td>
