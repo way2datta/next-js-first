@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { withRouter } from 'next/router';
 import Layout from "./../components/shared/Layout";
-import { createBucket } from "./createBucket";
+import { createBucket } from "../http-client/fetchBuckets";
 
 function CreateBucketView(props) {
     const [newBucketName, setNewBucketName] = useState("")
