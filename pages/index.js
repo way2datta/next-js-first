@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchBuckets } from "./http-client/fetchBuckets";
+import { fetchBuckets } from "./http-client/BucketRepository";
 import { BucketListing } from "./components/BucketListing";
 import Link from 'next/link';
 import Layout from "./components/shared/Layout";
