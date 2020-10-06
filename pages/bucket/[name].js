@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { fetchBucketsObjects } from "./../http-client/fetchBucketsObjects";
 import { useState, useLayoutEffect } from "react";
-import { ObjectsListing } from "./../ObjectsListing";
+import { ObjectsListing } from "./../components/ObjectsListing";
 import Layout from "./../components/shared/Layout";
 
 function BucketView() {
