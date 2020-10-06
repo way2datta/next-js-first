@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { fetchBucketsObjects } from "./../fetchBucketsObjects";
+import { fetchBucketsObjects } from "./../http-client/fetchBucketsObjects";
 import { useState, useLayoutEffect } from "react";
 import { ObjectsListing } from "./../ObjectsListing";
 import Layout from "./../components/shared/Layout";
