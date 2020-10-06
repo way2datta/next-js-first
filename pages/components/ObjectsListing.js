@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Table from 'react-bootstrap/Table';
 import { AiOutlineFolderOpen, AiOutlineFile } from 'react-icons/ai';
+import Button from 'react-bootstrap/Button';
 
 function possiblyFilter(bucketObjects) {
   const transformed = bucketObjects.map(x => {
@@ -15,7 +16,7 @@ function ObjectIcon({ isFolder }) {
   return isFolder ? <AiOutlineFolderOpen className="mr-2"/> : <AiOutlineFile className="mr-2"/>;
 }
 
-export function ObjectsListing({ datasource }) {
+export function ObjectsListing({ datasource, onDeleteClicked }) {
   const filtered = possiblyFilter(datasource);
   const rows = filtered.map((x) =>
     <tr key={x.Name}>
@@ -25,6 +26,7 @@ export function ObjectsListing({ datasource }) {
       </td>
       <td>{new Date(x.LastModified).toLocaleString(undefined, { timeZone: 'Asia/Kolkata' })}</td>
       <td>{x.Size}</td>
+      <td><Button variant="danger" size="sm" onClick={e=>onDeleteClicked(x.Name)}>Delete</Button> </td>
     </tr>
   );
   return <Table striped bordered hover responsive >
@@ -33,6 +35,7 @@ export function ObjectsListing({ datasource }) {
         <th>Name</th>
         <th>Last Modified</th>
         <th>Size</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>

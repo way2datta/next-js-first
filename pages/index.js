@@ -10,8 +10,8 @@ function Home() {
     const buckets = await fetchBuckets();
     setBuckets(buckets);
   }
-  const onDeleteClicked =async(args)=> {
-    await deleteBucket(args);
+  const onDeleteClicked =async(bucketName)=> {
+    await deleteBucket(bucketName);
     await loadBuckets();
   }
   useEffect(() => {
