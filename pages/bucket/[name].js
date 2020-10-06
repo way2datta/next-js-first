@@ -3,14 +3,43 @@ import { fetchBucketsObjects, deleteBucketObject } from "../http-client/BucketsO
 import { useState, useLayoutEffect } from "react";
 import { ObjectsListing } from "../components/ObjectsListing";
 import Layout from "../components/shared/Layout";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal'
+
+function CreateFolderView(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          New Folder
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <p>
+          When you create a folder, S3 console creates an object with the above name appended by suffix "/" and that object is displayed as a folder in the S3 console.
+        </p>
+        <br />
+        <input placeholder="New folder" />
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
 
 function BucketView() {
   const router = useRouter();
   const { name } = router.query;
   const [objectsInBucket, setObjectsInBuckets] = useState([])
-  
+  const [modalShow, setModalShow] = useState(false);
+
   const onDeleteClicked = async (objectName) => {
-    console.log("Deleting the object...",objectName);
     await deleteBucketObject(name, objectName);
     await loadObjectsInBucket();
   }
@@ -26,7 +55,15 @@ function BucketView() {
   return (
     <>
       <h1>Bucket details: {name}</h1>
-      <ObjectsListing datasource={objectsInBucket}  onDeleteClicked={onDeleteClicked} />
+      <Button variant="primary" size="sm" onClick={() => setModalShow(true)}>Create Folder</Button>
+      <br />
+      <br />
+      <ObjectsListing datasource={objectsInBucket} onDeleteClicked={onDeleteClicked} />
+
+      <CreateFolderView
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </>
   );
 }
