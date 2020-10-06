@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import Table from 'react-bootstrap/Table'
+import Link from 'next/link';
+import Table from 'react-bootstrap/Table';
 
 export function BucketListing({ buckets }) {
   const rows = buckets.map((x) =>
