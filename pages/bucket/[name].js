@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { fetchBucketsObjects, deleteBucketObject } from "../http-client/BucketsObjectRepository";
 import { useState, useLayoutEffect } from "react";
-import { ObjectsListing } from "../components/ObjectsListing";
+import { ObjectsListing } from "../components/UniqueObjectsListing";
 import Layout from "../components/shared/Layout";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal'
@@ -58,7 +58,10 @@ function BucketView() {
       <Button variant="primary" size="sm" onClick={() => setModalShow(true)}>Create Folder</Button>
       <br />
       <br />
-      <ObjectsListing datasource={objectsInBucket} onDeleteClicked={onDeleteClicked} />
+      <ObjectsListing datasource={objectsInBucket}
+        onDeleteClicked={onDeleteClicked}
+        bucketName={name}
+      />
 
       <CreateFolderView
         show={modalShow}
